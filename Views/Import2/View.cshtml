@@ -7,9 +7,9 @@
 <h1>View</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create Novo</a>
 </p>
-<table class="table">
+<table class="table" name="stafflist" id="stafflist">
     <thead>
         <tr>
             <th>
@@ -22,20 +22,25 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Adress)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Name)*@
+                    @Html.TextBoxFor(modelItem => item.Name, new { @class = "form-control" })
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Adress)*@
+                    @Html.TextBoxFor(modelItem => item.Adress, new { @class = "form-control" })
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+                </td>
+            </tr>
+        }
+
+
     </tbody>
 </table>

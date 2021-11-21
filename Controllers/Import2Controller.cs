@@ -21,6 +21,7 @@ namespace ImportExcelSql.Controllers
         public ActionResult File()
         {
             FileUploadViewModel model = new FileUploadViewModel();
+            model.EmployeeListViewModel = new List<EmployeeViewModel>();
             return View(model);
         }
         [HttpPost]
@@ -53,13 +54,14 @@ namespace ImportExcelSql.Controllers
                 {
                     //read excel file data and add data in  model.StaffInfoViewModel.StaffList
                     var rowCount = worksheet.Dimension.Rows;
+                    model.EmployeeListViewModel = new List<EmployeeViewModel>();
                     for (int row = 2; row <= rowCount; row++)
                     {
-                        model.StaffInfoViewModel.StaffList.Add(new StaffInfoViewModel
+                        model.EmployeeListViewModel.Add(new EmployeeViewModel
                         {
-                            FirstName = (worksheet.Cells[row, 1].Value ?? string.Empty).ToString().Trim(),
-                            LastName = (worksheet.Cells[row, 2].Value ?? string.Empty).ToString().Trim(),
-                            Email = (worksheet.Cells[row, 3].Value ?? string.Empty).ToString().Trim(),
+                            FirstName = (worksheet.Cells[row, 2].Value ?? string.Empty).ToString().Trim(),
+                            LastName = (worksheet.Cells[row, 5].Value ?? string.Empty).ToString().Trim(),
+                            Email = (worksheet.Cells[row, 4].Value ?? string.Empty).ToString().Trim(),
                         });
                     }
                 }
@@ -70,11 +72,12 @@ namespace ImportExcelSql.Controllers
 
         [HttpPost]
         public ActionResult ImportOnly(FileUploadViewModel model)
+        //public ActionResult ImportOnly(FormCollection form)
         {
             var list = new List<Student>();
             var totalStudentsSql = new List<Student>();
 
-            foreach (var student in model.StaffInfoViewModel.StaffList)
+            foreach (var student in model.EmployeeListViewModel)
             {
                 list.Add(new Student
                 {
