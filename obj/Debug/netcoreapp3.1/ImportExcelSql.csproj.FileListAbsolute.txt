@@ -71,3 +71,4 @@ C:\1A\Desenv\C#\ImportExcelSql\ImportExcelSql\ImportExcelSql\bin\Debug\netcoreap
 C:\1A\Desenv\C#\ImportExcelSql\ImportExcelSql\ImportExcelSql\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\1A\Desenv\C#\ImportExcelSql\ImportExcelSql\ImportExcelSql\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\1A\Desenv\C#\ImportExcelSql\ImportExcelSql\ImportExcelSql\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+C:\1A\Desenv\C#\ImportExcelSql\ImportExcelSql\ImportExcelSql\obj\Debug\netcoreapp3.1\ImportExcelSql.csproj.AssemblyReference.cache

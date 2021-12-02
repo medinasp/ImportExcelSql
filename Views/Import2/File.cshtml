@@ -31,23 +31,31 @@
         <h1>
             Display Excel File Records
         </h1>
-        <input asp-for="StaffInfoViewModel.FirstName" class="form-control" />
         <table class="table table-active table-bordered" width="100">
             <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Email2</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.StaffInfoViewModel.StaffList)
                 {
-                    <tr>
-                        <td>@item.FirstName</td>
-                        <td>@item.LastName</td>
-                        <td>@item.Email</td>
-                    </tr>
+                <tr>
+                    <td><select asp-for="StaffInfoViewModel.FirstName" asp-items="@(new SelectList(Model.StaffInfoViewModel.StaffList,"FirstName", "FirstName"))" class="form-control"></select></td>
+                    <td><select asp-for="StaffInfoViewModel.LastName" asp-items="@(new SelectList(Model.StaffInfoViewModel.StaffList,"LastName", "LastName"))" class="form-control"></select></td>
+                    <td><select asp-for="StaffInfoViewModel.Email" option value="@item.Email" class="form-control"></select></td>
+                    <td>
+                        <a href="@Url.Action("ImportOnly", new { Email = item.Email })">
+                            <span class="bi bi-pencil" style="font-size: 1.10rem"> </span>
+                        </a>
+                    </td>
+                    <!--<td>@*@item.FirstName*@</td>-->
+                    <!--<td>@*@item.LastName*@</td>-->
+                    <!--<td>@*@item.Email*@</td>-->
+                </tr>
                 }
             </tbody>
         </table>
