@@ -37,24 +37,15 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
-                    <th>Email2</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.StaffInfoViewModel.StaffList)
                 {
                 <tr>
-                    <td><select asp-for="StaffInfoViewModel.FirstName" asp-items="@(new SelectList(Model.StaffInfoViewModel.StaffList,"FirstName", "FirstName"))" class="form-control"></select></td>
-                    <td><select asp-for="StaffInfoViewModel.LastName" asp-items="@(new SelectList(Model.StaffInfoViewModel.StaffList,"LastName", "LastName"))" class="form-control"></select></td>
-                    <td><select asp-for="StaffInfoViewModel.Email" option value="@item.Email" class="form-control"></select></td>
-                    <td>
-                        <a href="@Url.Action("ImportOnly", new { Email = item.Email })">
-                            <span class="bi bi-pencil" style="font-size: 1.10rem"> </span>
-                        </a>
-                    </td>
-                    <!--<td>@*@item.FirstName*@</td>-->
-                    <!--<td>@*@item.LastName*@</td>-->
-                    <!--<td>@*@item.Email*@</td>-->
+                    <td><input asp-for="StaffInfoViewModel.FirstName" option value="@item.FirstName" class="form-control"></td>
+                    <td><input asp-for="StaffInfoViewModel.LastName" option value="@item.LastName" class="form-control"></td>
+                    <td><input asp-for="StaffInfoViewModel.Email" option value="@item.Email" class="form-control"></td>
                 </tr>
                 }
             </tbody>
