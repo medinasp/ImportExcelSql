@@ -40,12 +40,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.StaffInfoViewModel.StaffList)
+                @foreach (var item in Model.StaffInfoViewModel)
                 {
                 <tr>
-                    <td><input asp-for="StaffInfoViewModel.FirstName" option value="@item.FirstName" class="form-control"></td>
-                    <td><input asp-for="StaffInfoViewModel.LastName" option value="@item.LastName" class="form-control"></td>
-                    <td><input asp-for="StaffInfoViewModel.Email" option value="@item.Email" class="form-control"></td>
+                    <td><input asp-for="StaffInfoViewModel" option value="@item.FirstName" class="form-control"></td>
+                    <td><input asp-for="StaffInfoViewModel" option value="@item.LastName" class="form-control"></td>
+                    <td><input asp-for="StaffInfoViewModel" option value="@item.Email" class="form-control"></td>
                 </tr>
                 }
             </tbody>

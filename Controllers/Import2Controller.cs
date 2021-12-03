@@ -55,7 +55,7 @@ namespace ImportExcelSql.Controllers
                     var rowCount = worksheet.Dimension.Rows;
                     for (int row = 2; row <= rowCount; row++)
                     {
-                        model.StaffInfoViewModel.StaffList.Add(new StaffInfoViewModel
+                        model.StaffInfoViewModel.Add(new StaffInfoViewModel
                         {
                             FirstName = (worksheet.Cells[row, 1].Value ?? string.Empty).ToString().Trim(),
                             LastName = (worksheet.Cells[row, 2].Value ?? string.Empty).ToString().Trim(),
@@ -74,7 +74,7 @@ namespace ImportExcelSql.Controllers
             var list = new List<Student>();
             var totalStudentsSql = new List<Student>();
 
-            foreach (var student in model.StaffInfoViewModel.StaffList)
+            foreach (var student in model.StaffInfoViewModel)
             {
                 list.Add(new Student
                 {

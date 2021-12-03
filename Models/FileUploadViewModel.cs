@@ -11,11 +11,11 @@ namespace ImportExcelSql.Models
         public IFormFile XlsFile { get; set; }
         /*create StaffInfoViewModel  object because we need to add read
          excel data and mapping in StaffInfoViewModel*/
-        public StaffInfoViewModel StaffInfoViewModel { get; set; }
+        public List<StaffInfoViewModel> StaffInfoViewModel { get; set; }
         public FileUploadViewModel()//Create contractor
         {
             //call StaffInfoViewModel  this object in contractor
-            StaffInfoViewModel = new StaffInfoViewModel();
+            StaffInfoViewModel = new List<StaffInfoViewModel>();
         }
     }
 }
