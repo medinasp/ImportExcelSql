@@ -94,6 +94,7 @@ namespace ImportExcelSql.Controllers
             return View("View",totalStudentsSql);
         }
 
+        /*
         [HttpPost]
         public async Task<List<Student>> Import(IFormFile file)
         {
@@ -124,25 +125,26 @@ namespace ImportExcelSql.Controllers
 
                 }
 
-/*
-                IList<StudentSql> newStudents = new List<StudentSql>() 
-                        {
-                                    new StudentSql() { StudentId = 6,  Name = "Steve",  Address = "Bill"}
+
+//                IList<StudentSql> newStudents = new List<StudentSql>() 
+//                        {
+//                                    new StudentSql() { StudentId = 6,  Name = "Steve",  Address = "Bill"}
 //                                    new StudentSql() { Name = "Steve" }
 //                                    new StudentSql() { Address = "Bill" }
 //                                    new StudentSql() { Name = "Steve" },
-                        };
+//                        };
 
-                using (var context = new StudentDbContext())
-                {
-                    context.Students.AddRange(newStudents);
-                    context.SaveChanges();
-                }
+//                using (var context = new StudentDbContext())
+//                {
+//                    context.Students.AddRange(newStudents);
+//                    context.SaveChanges();
+//                }
 
-*/
+
             }
             return list;
         }
+        */
 
     }
 }
