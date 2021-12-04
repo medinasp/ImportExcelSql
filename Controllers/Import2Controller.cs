@@ -21,7 +21,6 @@ namespace ImportExcelSql.Controllers
         public ActionResult File()
         {
             FileUploadViewModel model = new FileUploadViewModel();
-            model.StaffInfoViewModel = new List<StaffInfoViewModel>();
             return View(model);
         }
         [HttpPost]
@@ -54,7 +53,6 @@ namespace ImportExcelSql.Controllers
                 {
                     //read excel file data and add data in  model.StaffInfoViewModel.StaffList
                     var rowCount = worksheet.Dimension.Rows;
-                    model.StaffInfoViewModel = new List<StaffInfoViewModel>();
                     for (int row = 2; row <= rowCount; row++)
                     {
                         model.StaffInfoViewModel.Add(new StaffInfoViewModel
