@@ -21,6 +21,7 @@ namespace ImportExcelSql.Controllers
         public ActionResult File()
         {
             FileUploadViewModel model = new FileUploadViewModel();
+            model.StaffInfoViewModel = new List<StaffInfoViewModel>();
             return View(model);
         }
         [HttpPost]
@@ -53,13 +54,14 @@ namespace ImportExcelSql.Controllers
                 {
                     //read excel file data and add data in  model.StaffInfoViewModel.StaffList
                     var rowCount = worksheet.Dimension.Rows;
+                    model.StaffInfoViewModel = new List<StaffInfoViewModel>();
                     for (int row = 2; row <= rowCount; row++)
                     {
                         model.StaffInfoViewModel.Add(new StaffInfoViewModel
                         {
-                            FirstName = (worksheet.Cells[row, 1].Value ?? string.Empty).ToString().Trim(),
-                            LastName = (worksheet.Cells[row, 2].Value ?? string.Empty).ToString().Trim(),
-                            Email = (worksheet.Cells[row, 3].Value ?? string.Empty).ToString().Trim(),
+                            FirstName = (worksheet.Cells[row, 2].Value ?? string.Empty).ToString().Trim(),
+                            LastName = (worksheet.Cells[row, 3].Value ?? string.Empty).ToString().Trim(),
+                            Email = (worksheet.Cells[row, 4].Value ?? string.Empty).ToString().Trim(),
                         });
                     }
                 }
