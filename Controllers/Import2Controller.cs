@@ -43,7 +43,6 @@ namespace ImportExcelSql.Controllers
             //After save excel file in wwwroot and then
             using (ExcelPackage package = new ExcelPackage(file))
             {
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault();
                 if (worksheet == null)
                 {
